@@ -262,7 +262,7 @@ print("List after removing duplicates:", unique_numbers)
 
 
 #Given a number, find very next possible bigger number that has all the digits of the given number.
-#Given a number, find very next possible bigger number that has all the digits of the given number.
+
 
 num = input("Enter a number: ").strip()
 digits = list(num)  
