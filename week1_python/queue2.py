@@ -1,4 +1,4 @@
-
+#Implement Queue using list, insert front, delete from rear of the list
 queue = [] 
 
 def enqueue():

@@ -195,3 +195,150 @@ for i in range(lines):
         else:
             print('  ', end='')
     print()
+
+
+#Find sum of the Even placed digits in the given number.
+input_number = input("Enter a number: ")
+sum = 0
+
+for index in range(len(input_number)):
+    if (index + 1) % 2 == 0:
+        sum += int(input_number[index])
+
+print(sum)
+ 
+# Find sum of the Odd placed Even digits in the given number.
+input_number = input("Enter a number: ")
+sum = 0
+
+for index in range(len(input_number)):
+    if (index + 1) % 2 != 0:
+        sum += int(input_number[index])
+
+print(sum)
+
+
+#Find smallest and biggest elements in an list of n number
+
+user_input = input("Enter numbers separated by space: ")
+input_list = list(map(int, user_input.split()))
+input_list.sort() 
+smallest = input_list[0]
+largest = input_list[-1]
+
+print("Smallest element:", smallest)
+print("Largest element:", largest)
+
+
+#Find the frequency an element in a list of n elements.
+
+n = int(input("Enter the number of elements: "))
+numbers = []
+
+for i in range(n):
+    value = int(input(f"Enter element {i + 1}: "))
+    numbers.append(value)
+
+element = int(input("Enter the element to find its frequency: "))
+
+count = 0
+for num in numbers:
+    if num == element:
+        count += 1
+print(f"The frequency of {element} is: {count}")
+
+
+
+#Remove the duplicates in a list of size n
+
+n = int(input("Enter the number of elements: "))
+numbers = []
+
+for i in range(n):
+    num = int(input(f"Enter element {i+1}: "))
+    numbers.append(num)
+unique_numbers = list(set(numbers))
+print("List after removing duplicates:", unique_numbers)
+
+
+#Given a number, find very next possible bigger number that has all the digits of the given number.
+#Given a number, find very next possible bigger number that has all the digits of the given number.
+
+num = input("Enter a number: ").strip()
+digits = list(num)  
+i = len(digits) - 2
+while i >= 0 and digits[i] >= digits[i + 1]:
+    i -= 1
+if i < 0:
+    print("No larger number possible")
+else:
+    j = len(digits) - 1
+    while digits[j] <= digits[i]:
+        j -= 1
+    digits[i], digits[j] = digits[j], digits[i]
+    digits[i+1:] = reversed(digits[i+1:])
+    print("Next bigger number is", "".join(digits))
+
+ # Accpet a number from the user (4 digit number where a digit can repeat at most 2 times )and 
+    # print the coutn of recursions reqired to arrive at Karpekar's Constant.
+n = int(input("Enter a 4-digit number): "))
+count = 0
+prev = -1
+
+while True:
+    s = f"{n:04d}"                  
+    asc = int("".join(sorted(s)))
+    desc = int("".join(sorted(s, reverse=True)))
+    diff = desc - asc
+
+    count += 1
+    if diff == prev or diff == 6174 or diff == 0:
+        n = diff
+        break
+
+    prev, n = diff, diff
+
+if n == 6174:
+    print("Reached Kaprekar's constant 6174 in", count, "iterations")
+elif n == 0:
+    print("Reached 0 in", count, "iterations (no further progression)")
+else:
+    print("Stopped at", n, "after", count, "iterations")
+
+# Find Factorial of a number
+input_number=int(input("Enter the number: "))
+fact = 1
+for i in range(1, input_number + 1):
+    fact *= i
+print(f"{input_number}! = {fact}")
+
+
+#Print N Fibo terms with 1 and 2 as 1st 2 terms.
+
+n = int(input("Enter N (number of terms): "))
+
+if n <= 0:
+    print("Please enter a positive integer.")
+elif n == 1:
+    print(1)
+else:
+
+    a, b = 1, 2
+    print(a, end=" ")
+    if n >= 2:
+        print(b, end=" ")
+
+    for i in range(3, n + 1):
+        c = a + b
+        print(c, end=" ")
+        a, b = b, c
+
+print()  
+
+
+#Find sum of list elements
+number = list(map(int, input("Enter numbers: ").split()))
+total = 0
+for num in number:
+    total += num
+print("Sum of list elements:", total)
