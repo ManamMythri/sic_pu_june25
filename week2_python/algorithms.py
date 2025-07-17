@@ -1,5 +1,4 @@
-
-
+#binary search
 def binary_search(arr, target):
     left = 0
     right = len(arr) - 1
@@ -109,3 +108,51 @@ quick_sort(arr, 0, len(arr) - 1)
 
 print("Sorted array:", arr)
 
+#merge sort
+
+class MergeSort:
+    def __init__(self, data):
+        self.data = data
+
+    def sort(self):
+        #Public method to start merge sort.
+        self.data = self._merge_sort(self.data)
+
+    def _merge_sort(self, array):
+      
+        if len(array) <= 1:
+            return array
+
+        mid = len(array) // 2
+        left_half = self._merge_sort(array[:mid])
+        right_half = self._merge_sort(array[mid:])
+
+        return self._merge(left_half, right_half)
+
+    def _merge(self, left, right):
+        #Merge two sorted lists into one sorted list.
+        merged = []
+        i = j = 0
+
+        
+        while i < len(left) and j < len(right):
+            if left[i] <= right[j]:
+                merged.append(left[i])
+                i += 1
+            else:
+                merged.append(right[j])
+                j += 1
+
+        # Append remaining elements
+        merged.extend(left[i:])
+        merged.extend(right[j:])
+        return merged
+
+    def get_sorted_data(self):
+        return self.data
+
+user_input = input("Enter numbers to sort (space-separated): ")
+numbers = list(map(int, user_input.strip().split()))
+sorter = MergeSort(numbers)
+sorter.sort()
+print("Sorted list:", sorter.get_sorted_data())

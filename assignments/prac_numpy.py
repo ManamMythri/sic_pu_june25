@@ -1,3 +1,4 @@
+
 import numpy as np
 # arange()
 
@@ -221,3 +222,114 @@ print(np.inf > np.nan)
 print(np.nan - np.nan)
 print(np.nan in set([np.nan]))
 print(0.3 == 3 * 0.1)
+
+
+# In a np array of spendings of the week, find the highest spending and the day.
+
+import numpy as np
+week_spendings = np.array([50, 120, 30, 40, 200, 90, 300])
+index = 1
+big_spending = week_spendings[0]
+index = np.argmax(week_spendings)
+days = {1:'mon', 2:'tue', 3:'wed', 4:'thus', 5:'fri', 6:'sat', 7:'sun'}
+print(big_spending, days[index])
+
+
+for i in range(len(week_spendings)):
+	if week_spendings[i] > big_spending:
+		big_spending = week_spendings[i]
+		index = i
+
+# Replacing values less than 50 with 0 in an array
+
+# Explanation: Using np.where() to replace values meeting the condition
+import numpy as np
+expenses = np.array([20, 60, 5, 80, 45, 90])
+modified_expenses = np.where(expenses < 50, 0, expenses)
+print(modified_expenses)  # Output: [ 0 60  0 80  0 90]
+
+
+
+#Generating random floating-point numbers between 0 and 1
+
+#Explanation: Using np.random.rand() to create a random array of given shape
+import numpy as np
+random_data = np.random.rand(3, 4) # Creates a 3x4 array with random values
+print(random_data)
+
+import random
+
+user_number = int(input('Enter a number of your choice between [0 and 9]: '))
+system_number = random.randint(0,9) 
+if system_number == user_number:
+	print('CrorePati')
+else:
+	print('RoadPati')
+
+
+
+import pandas as pd
+
+def read_csv_file():
+    # Define the path to the CSV file
+    file_path = r"C:\Users\Lenovo\Downloads\students.csv"
+
+    # Read the CSV file into a pandas DataFrame
+    df = pd.read_csv(file_path)
+
+    # Display the first few rows of the DataFrame
+    print(df.count())
+    print(df.head())
+    print(df.tail())
+
+
+def read_csv_file1():
+    file_path = r"C:\Users\Lenovo\Downloads\students.csv"
+
+    df = pd.read_csv(file_path)
+    for index, row in df.iterrows():
+        print(row[0], '  ', row[1])
+
+
+def read_csv_file2():
+    file_path = r"C:\Users\Lenovo\Downloads\students.csv"
+
+    df = pd.read_csv(file_path)
+    for row in df.iterrows():
+        print(row[1][0], row[1][1])
+
+#read_csv_file()
+#read_csv_file1()
+read_csv_file2()
+
+
+#Creating a DataFrame
+
+#Explanation: Using pandas to create a DataFrame from a dictionary
+
+import pandas as pd
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35],
+        'Salary': [50000, 60000, 70000]}
+df = pd.DataFrame(data)
+print(df)
+
+
+# # Generating 23 equally spaced values between 0 and 100
+
+# Explanation: Using np.linspace() to generate specified number of values in a range
+import numpy as np
+values = np.linspace(0, 100, 23)
+print("Generated values:", values)
+print("Total count:", len(values)) 
+
+import pandas as pd
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35],
+        'Salary': [50000, 60000, 70000]}
+df = pd.DataFrame(data)
+print(df)
+
+df = pd.read_csv('data.csv')  # Reads the CSV file
+df.head()  # Displays the first 5 rows
+print(df.isnull().sum()) 
